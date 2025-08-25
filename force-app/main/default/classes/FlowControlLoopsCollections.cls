@@ -64,7 +64,8 @@ public with sharing class FlowControlLoopsCollections {
         //if (age < 18) return false; else return true;
 
         //ternary operator or conditional operator
-        return (age < 18) ? false : true;
+        //return (age < 18) ? false : true;
+        return age >= 18;
     }
 
     /**
@@ -123,7 +124,7 @@ public with sharing class FlowControlLoopsCollections {
         if (a == null) {
             return null;
         } else {
-            if (math.mod(a, 2) == 0) {
+            if (Math.mod(a, 2) == 0) {
                 return 'Even';
             } else {
                 return 'Odd';
@@ -163,23 +164,28 @@ public with sharing class FlowControlLoopsCollections {
      * @return The grade for the given score.
      */
     public static String determineGrade(Integer score) {
-        if (score >= 60) {
-            if (score >= 70) {
-                if (score >= 80){
-                    if(score >= 90){
-                        return 'A';
-                    } else {
-                        return 'B';
-                    }
-                } else {
-                    return 'C';
-                }
-            } else {
-                return 'D';
-            }
-        } else {
-            return 'F';
-        }
+        // if (score >= 60) {
+        //     if (score >= 70) {
+        //         if (score >= 80){
+        //             if(score >= 90){
+        //                 return 'A';
+        //             } else {
+        //                 return 'B';
+        //             }
+        //         } else {
+        //             return 'C';
+        //         }
+        //     } else {
+        //         return 'D';
+        //     }
+        // } else {
+        //     return 'F';
+        // }
+        if (score >= 90) return 'A';
+        if (score >= 80) return 'B';
+        if (score >= 70) return 'C';
+        if (score >= 60) return 'D';
+        return 'F';
     }
 
     /**
@@ -336,15 +342,13 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static Integer findWordInList(String wordToFind, List<String> words) {
         // The variable to store the index of the word
-        Integer wordIndex;
+        Integer wordIndex = -1;
         // Loop through the list of words
             // If the current word is the word to find, exit the loop
         for (Integer i = 0; i < words.size(); i++) {
             if (wordToFind == words[i]) {
                 wordIndex = i;
                 break;
-            } else {
-                wordIndex = -1;
             } 
         }
         return wordIndex;
